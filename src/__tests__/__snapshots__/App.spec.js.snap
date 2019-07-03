@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component snapshot tests Change search input 1`] = `"<input placeholder=\\"Write the name of the film or part of it\\" type=\\"text\\" required=\\"\\" value=\\"lol\\">"`;
+
+exports[`Component snapshot tests Drawing initial state 1`] = `"<input placeholder=\\"Write the name of the film or part of it\\" type=\\"text\\" required=\\"\\" value=\\"\\">"`;
