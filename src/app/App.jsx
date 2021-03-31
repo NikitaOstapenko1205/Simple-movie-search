@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as actions from './actions';
 
-const mapStateToProps = state => {
-  return state;
-};
+const mapStateToProps = (state) => state;
 
 const actionCreators = {
   updateSearchField: actions.updateSearchField,
@@ -25,12 +23,12 @@ class App extends React.Component {
     moviesState: PropTypes.object
   };
 
-  updateSearch = e => {
+  updateSearch = (e) => {
     const { updateSearchField } = this.props;
     updateSearchField({ search: e.target.value });
   };
 
-  findMovies = e => {
+  findMovies = (e) => {
     e.preventDefault();
     const { fetchMovies, search } = this.props;
     try {
@@ -40,7 +38,7 @@ class App extends React.Component {
     }
   };
 
-  findMovie = id => e => {
+  findMovie = (id) => (e) => {
     e.preventDefault();
     const { fetchSingleMovie } = this.props;
     try {
@@ -50,7 +48,7 @@ class App extends React.Component {
     }
   };
 
-  addMovies = movies => {
+  addMovies = (movies) => {
     const htmledMovies = (
       <div className="grid">
         {movies.map(mv => (
@@ -80,7 +78,7 @@ class App extends React.Component {
     return htmledMovies;
   };
 
-  closeModal = e => {
+  closeModal = (e) => {
     e.preventDefault();
     const { closeModalWindow } = this.props;
     closeModalWindow();
@@ -132,8 +130,9 @@ class App extends React.Component {
 
   render() {
     const { search, moviesFetchingState, moviesState } = this.props;
+
     return (
-      <div>
+      <main>
         <form onSubmit={this.findMovies}>
           <input
             placeholder="Write the name of the film or part of it"
@@ -149,7 +148,7 @@ class App extends React.Component {
           <h2 className="movies-error">Sorry... We found nothing, try again!</h2>
         )}
         {Object.keys(moviesState.movie).length > 0 && this.showMovieModal()}
-      </div>
+      </main>
     );
   }
 }

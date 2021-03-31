@@ -19,23 +19,13 @@ const moviesFetchingState = handleActions(
 
 const moviesState = handleActions(
   {
-    [actions.fetchMoviesSuccess](
-      state,
-      {
-        payload: { movies }
-      }
-    ) {
+    [actions.fetchMoviesSuccess](state, {payload: { movies }}) {
       const newState = movies
         ? { moviesFinded: true, movies, movie: {} }
         : { moviesFinded: false, movies: [], movie: {} };
       return newState;
     },
-    [actions.fetchSingleMovieSuccess](
-      state,
-      {
-        payload: { movie }
-      }
-    ) {
+    [actions.fetchSingleMovieSuccess](state, {payload: { movie }}) {
       return { ...state, movie };
     },
     [actions.closeModalWindow](state) {
